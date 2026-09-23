@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plano HAGA</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#172033;background:#fff}#app{display:grid;grid-template-columns:360px 1fr;height:100vh}.side{padding:26px 24px;overflow:auto;border-right:1px solid #d9dde5;background:#fff}.eyebrow{font-size:13px;letter-spacing:2px;font-weight:700;text-transform:uppercase;color:#687286}.side h1{font-size:32px;margin:5px 0 22px;line-height:1.05}.intro{font-size:14px;line-height:1.45;color:#596275;margin-bottom:20px}.item{display:flex;gap:12px;margin:15px 0}.num{width:30px;height:30px;border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;flex:0 0 30px}.event{background:#c92b3d}.food{background:#d97921}.guest{background:#2768a8}.speaker{background:#7650a5}.party{background:#d53c7a}.tram{background:#238a57}.item h3{font-size:15px;margin:0 0 3px}.item p{font-size:12.5px;line-height:1.4;color:#667085;margin:0}.item a{color:#1769aa;text-decoration:none;font-weight:600}.item a:hover{text-decoration:underline}.section{font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#7a8291;margin-top:24px}.tramlist{font-size:13px;line-height:1.6;margin-top:7px}.tramlist b{color:#167343}.note{font-size:11px;line-height:1.45;color:#7a8291;border-top:1px solid #e2e5ea;margin-top:20px;padding-top:15px}.map{min-width:0}#map{height:100%;width:100%}.legend{background:white;padding:9px 11px;border-radius:8px;box-shadow:0 1px 6px #0002;font-size:12px}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}.print{margin-top:15px;border:0;background:#172033;color:#fff;padding:10px 13px;border-radius:7px;cursor:pointer;font-weight:700}.leaflet-popup-content{font-size:13px;line-height:1.4}.leaflet-popup-content b{font-size:14px}
+@media print{
+  *, *::before, *::after{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+  a, .item a{color:#1769aa !important;text-decoration:underline !important;}
+  .num{color:#fff !important;}
+  .leaflet-control, .leaflet-popup{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+  @page{size:A4 landscape;margin:0}
+  body{background:#fff}
+  #app{display:grid;grid-template-columns:300px 1fr;height:100vh}
+  .side{display:block;padding:18px 16px;overflow:hidden;border-right:1px solid #d9dde5}
+  .side h1{font-size:25px;margin-bottom:14px}
+  .intro{font-size:11px;margin-bottom:12px}
+  .item{gap:8px;margin:9px 0}
+  .num{width:24px;height:24px;flex-basis:24px;font-size:12px}
+  .item h3{font-size:11px}
+  .item p{font-size:9.5px}
+  .section{font-size:10px;margin-top:14px}
+  .tramlist{font-size:10px}
+  .note{font-size:9px;margin-top:12px;padding-top:10px}
+  .print{display:none}
+  .map{height:100vh}
+  #map{height:100vh}
+  .leaflet-control-attribution{font-size:7px}
+}
+  .item a{position:relative;}
+
+</style></head><body><div id="app"><aside class="side"><div class="eyebrow">Presentación HAGA · Bilbao</div><h1>Mapa de puntos de interés</h1><div class="intro"></div>
+<div class="item"><div class="num event">1</div><div><h3>EVENTO · Palacio Euskalduna</h3><p>Abandoibarra Etorb., 4 · 48011 Bilbao<br><a href="https://www.google.com/maps/search/Abandoibarra+Etorb.,+4,+Abando,+48011+Bilbao,+Bizkaia">Ver en Google Maps ↗</a></p></div></div>
+<div class="item"><div class="num food">2</div><div><h3>COMIDA · Le Bol Blanc</h3><p>Diego Lopez Haroko Kale Nagusia, 87 · 48911 Bilbao, Bizkaia<br><a href="https://maps.app.goo.gl/dRHkmJ8cU3Qvd9ep7">Ver en Google Maps ↗</a></p></div></div>
+<div class="item"><div class="num guest">3</div><div><h3>ALOJAMIENTO INVITADAS · LaTroupe</h3><p>Plaza Biribila / Plaza Circular, 3 · 48001 Bilbao<br><a href="https://maps.app.goo.gl/SAmHCmo3rMFgjUGo7">Ver en Google Maps ↗</a></p></div></div>
+<div class="item"><div class="num speaker">4</div><div><h3>ALOJAMIENTO PONENTES · Spirit Apartamentos Atxuri</h3><p>Miraflores Etorbidea, 15 · 48006 Bilbao<br><a href="https://maps.app.goo.gl/6HDJxe6dynwR4FRr7">Ver en Google Maps ↗</a></p></div></div>
+<div class="item"><div class="num party">5</div><div><h3>CENA Y FIESTA · Bira Kultur Gunea</h3><p>Erronda Kalea, 2 · 48005 Bilbao<br><a href="https://maps.app.goo.gl/qxuBLVyaFstxck7j6">Ver en Google Maps ↗</a></p></div></div>
+<div class="section">Tranvía</div><div class="tramlist"><b>Ⓐ Euskalduna</b> — junto al Palacio Euskalduna<br><b>Ⓑ Abando</b> — LaTroupe<br><b>Ⓒ Atxuri</b> — Bira y Spirit</div>
+<div class="note">El tranvía recorre más paradas entre estos puntos. En el mapa se muestran destacadas las tres paradas relevantes para el evento.</div>
+<button class="print" type="button" onclick="printMap()">Imprimir / guardar como PDF</button></aside><main class="map"><div id="map"></div></main></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+const map=L.map('map',{zoomControl:true}).setView([43.2605,-2.933],14.5);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles © Esri — Source: Esri, OpenStreetMap contributors'}).addTo(map);
+const places=[
+ {n:1,cls:'event',name:'Palacio Euskalduna',cat:'EVENTO',lat:43.26701,lon:-2.94432,address:'Abandoibarra Etorb., 4',google:'https://www.google.com/maps/search/Abandoibarra+Etorb.,+4,+Abando,+48011+Bilbao,+Bizkaia'},
+ {n:2,cls:'food',name:'Le Bol Blanc',cat:'COMIDA',lat:43.26485,lon:-2.94417,address:'Diego Lopez Haroko Kale Nagusia, 87',google:'https://maps.app.goo.gl/dRHkmJ8cU3Qvd9ep7'},
+ {n:3,cls:'guest',name:'LaTroupe La Granja',cat:'ALOJAMIENTO INVITADAS',lat:43.26163,lon:-2.92713,address:'Plaza Biribila / Plaza Circular, 3',google:'https://maps.app.goo.gl/SAmHCmo3rMFgjUGo7'},
+ {n:4,cls:'speaker',name:'Spirit Apartamentos Atxuri',cat:'ALOJAMIENTO PONENTES',lat:43.2503893,lon:-2.9205326,address:'Miraflores Etorbidea, 15',google:'https://maps.app.goo.gl/6HDJxe6dynwR4FRr7'},
+ {n:5,cls:'party',name:'Bira Kultur Gunea',cat:'CENA Y FIESTA',lat:43.25592,lon:-2.9226,address:'Erronda Kalea, 2',google:'https://maps.app.goo.gl/qxuBLVyaFstxck7j6'}
+];
+const colors={event:'#c92b3d',food:'#d97921',guest:'#2768a8',speaker:'#7650a5',party:'#d53c7a',tram:'#238a57'};
+function icon(p){return L.divIcon({className:'',html:`<div style="width:34px;height:34px;border-radius:50%;background:${colors[p.cls]};border:3px solid white;box-shadow:0 2px 7px #0005;color:white;font:bold 15px Arial;display:flex;align-items:center;justify-content:center">${p.n}</div>`,iconSize:[34,34],iconAnchor:[17,17]})}
+places.forEach(p=>L.marker([p.lat,p.lon],{icon:icon(p)}).addTo(map).bindPopup(`<b>${p.name}</b><br>${p.cat}<br>${p.address}<br><a href="${p.google}">Ver en Google Maps ↗</a>`));
+const tramStops=[
+ ['Euskalduna',43.26626,-2.94394],['Abandoibarra',43.26859,-2.94058],['Guggenheim',43.26865,-2.93667],['Uribitarte',43.26629,-2.92876],['Pío Baroja',43.26439,-2.92609],['Abando',43.26097,-2.92662],['Arriaga',43.25909,-2.92578],['Ribera',43.25584,-2.92439],['Atxuri',43.25406,-2.92173]
+];
+L.polyline(tramStops.map(x=>[x[1],x[2]]),{color:'#238a57',weight:4,opacity:.85,dashArray:'7 7'}).addTo(map).bindPopup('Tranvía de Bilbao');
+const relevant={Euskalduna:'A',Abando:'B',Atxuri:'C'};tramStops.forEach(s=>{if(relevant[s[0]]){ const label=relevant[s[0]]; L.marker([s[1],s[2]],{icon:L.divIcon({className:'tram-stop-label',html:`<div style="width:34px;height:34px;border-radius:50%;background:#238a57;border:3px solid white;box-shadow:0 2px 7px #0005;color:white;font:bold 17px Arial;display:flex;align-items:center;justify-content:center">${label}</div>`,iconSize:[34,34],iconAnchor:[17,17]})}).addTo(map).bindTooltip('Tranvía · '+label+' · '+s[0],{direction:'top'}); }});
+L.control.scale({imperial:false}).addTo(map);
+const leg=L.control({position:'topright'});leg.onAdd=()=>{const d=L.DomUtil.create('div','legend');d.innerHTML='<b>TRANVÍA</b><br><span class="dot" style="background:#238a57"></span>Recorrido destacado';return d};leg.addTo(map);
+function printMap(){
+  map.invalidateSize();
+  setTimeout(function(){ window.print(); }, 150);
+}
+window.addEventListener('beforeprint',function(){map.invalidateSize();});
+</script></body></html>
